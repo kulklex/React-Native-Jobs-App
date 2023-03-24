@@ -10,7 +10,6 @@ const Popularjobs = () => {
   const router = useRouter()
   const {data, isLoading, error} = useFetch('search', {query: 'React developer', num_pages: 1})
 
-  console.log(data)
 
 
   return (
@@ -25,7 +24,7 @@ const Popularjobs = () => {
       <View style={styles.cardsContainer}>
         {isLoading 
           ? (<ActivityIndicator size="large" color={COLORS.primary} />)
-          : error ? (<Text>Something went wrong</Text>) 
+          : error ? (<Text style={{backgroundColor: 'red'}}>Something went wrong</Text>) 
                   : (<FlatList 
                         data={data} 
                         renderItem={({item}) => (<PopularJobCard item={item} />)} 
