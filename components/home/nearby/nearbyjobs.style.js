@@ -26,6 +26,15 @@ const styles = StyleSheet.create({
     marginTop: SIZES.medium,
     gap: SIZES.small,
   },
+  error: {
+    backgroundColor: 'red', 
+    color:'white', 
+    display: 'flex', 
+    alignItems:'center', 
+    justifyContent: 'center', 
+    fontSize: '1rem', 
+    padding: '10px'
+  },
 });
 
 export default styles;

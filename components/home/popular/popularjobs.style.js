@@ -24,6 +24,15 @@ const styles = StyleSheet.create({
   cardsContainer: {
     marginTop: SIZES.medium,
   },
+  error: {
+    backgroundColor: 'red', 
+    color:'white', 
+    display: 'flex', 
+    alignItems:'center', 
+    justifyContent: 'center', 
+    fontSize: '1rem', 
+    padding: '10px'
+  },
 });
 
 export default styles;
