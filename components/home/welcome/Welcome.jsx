@@ -4,9 +4,9 @@ import { useRouter } from 'expo-router'
 import styles from './welcome.style'
 import { icons, SIZES } from '../../../constants'
 import {RAPID_API_KEY} from '@env'
-console.log(RAPID_API_KEY)
 
-const Welcome = () => {
+
+const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
   const router = useRouter()
 
   const [activeJobType, setActiveJobType] = useState("Full-time")
@@ -21,10 +21,14 @@ const Welcome = () => {
 
     <View style={styles.searchContainer}>
       <View style={styles.searchWrapper}>
-        <TextInput style={styles.searchInput} value='' onChange={() => {}} placeholder="What are you looking for?" />
+        <TextInput 
+          style={styles.searchInput}
+          value={searchTerm}
+          onChange={(text) => setSearchTerm(text)} //React Native doesn't need e.target.value it immediately gets the value from as an argument
+          placeholder="What are you looking for?" />
       </View>
 
-      <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
+      <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
         <Image source={icons.search} resizeMethod='contain' style={styles.searchBtnImage} />
       </TouchableOpacity>
     </View>
