@@ -7,23 +7,23 @@ import { COLORS, icons, SIZES } from '../../constants'
 import useFetch from '../../utils/useFetch'
 
 
-
-export const JobDetails = () => {
+ const JobDetails = () => {
     const params = useSearchParams()
     const router = useRouter()
 
-    const {data, isLoading, error, refetchData} = useFetch('job-details', {job_id: params.id})
+    const {data, isLoading, error, refetchData} = useFetch("job-details", {job_id: params.id})
     
     const [refreshing, setRefreshing] = useState(false)
 
-    const onRefresh = () => {
-
-    }
+    const onRefresh = useCallback(() => {
+        setRefreshing(true);
+        refetchData()
+        setRefreshing(false)
+      }, [])
 
 
     const tabs = ["About", "Qualifications", "Responsibilities"]
-    const [activeTab, setActiveTab] = useState(0)
-
+    const [activeTab, setActiveTab] = useState(tabs[0])
 
     const displayTabContent = () => {
         switch(activeTab) {
@@ -42,7 +42,7 @@ export const JobDetails = () => {
                             info={data[0]?.job_description ?? "No data provided"}
                         />
             default:
-                break;
+                return null;
         }
     }
 
@@ -53,7 +53,7 @@ export const JobDetails = () => {
                 headerShadowVisible: false,
                 headerLeft: () => (<ScreenHeaderBtn iconUrl={icons.left} dimension="60%" handlePress={() => router.back()} />), 
                 headerRight: () => (<ScreenHeaderBtn iconUrl={icons.share} dimension="60%" handlePress={() => router.back()} />),
-                headerTitle: '', 
+                headerTitle: "", 
                 }} 
             />
             
@@ -74,13 +74,12 @@ export const JobDetails = () => {
                                     companyName={data[0].employer_name}
                                     location={data[0].job_country}
                                  />
-
                                  <JobTabs
                                     tabs={tabs}
                                     activeTab={activeTab}
                                     setActiveTab={setActiveTab}
                                  />  
-
+                                
                                  {displayTabContent()} 
                             </View>)
                 }
@@ -90,3 +89,6 @@ export const JobDetails = () => {
         </SafeAreaView>
     )
 }
+
+
+export default JobDetails
