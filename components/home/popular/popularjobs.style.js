@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
   },
   headerBtn: {
-    fontSize: SIZES.medium,
+    fontSize: SIZES.large,
     fontFamily: FONT.medium,
     color: COLORS.gray,
   },

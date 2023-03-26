@@ -5,6 +5,7 @@ import styles from './popularjobs.style'
 import {COLORS, SIZES} from '../../../constants'
 import PopularJobCard from '../../common/cards/popular/PopularJobCard'
 import  useFetchB  from '../../../utils/useFetchB'
+import { MdTrendingUp } from 'react-icons/md'
 
 const Popularjobs = () => {
   const router = useRouter()
@@ -14,7 +15,8 @@ const Popularjobs = () => {
   const [selectedJob, setSelectedJob] = useState('')
 
   const handleCardPress = (item) => {
-    router.push(`/job-details/${item.job_id}`)
+    router.push(`details/${item.job_id}`)
+    setSelectedJob(item.job_id)
   }
 
   return (
@@ -22,7 +24,7 @@ const Popularjobs = () => {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Popular jobs</Text>
         <TouchableOpacity>
-          <Text style={styles.headerBtn}>Show all</Text>
+          <Text style={styles.headerBtn}><MdTrendingUp /></Text>
         </TouchableOpacity>
       </View>
 
