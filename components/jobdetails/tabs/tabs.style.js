@@ -4,6 +4,9 @@ import { COLORS, SHADOWS, SIZES } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: SIZES.small,
     marginBottom: SIZES.small / 2,
   },
