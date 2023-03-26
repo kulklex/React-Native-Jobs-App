@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ActivityIndicator, FlatList, Image, TouchableOpacity, View } from 'react-native'
 import { Stack, useRouter, useSearchParams } from 'expo-router'
 import { Text, SafeAreaView } from 'react-native'
 import axios from 'axios'
-
 import { ScreenHeaderBtn, NearbyJobCard } from '../../components'
 import { COLORS, icons, SIZES } from '../../constants'
 import styles from './search.style'
@@ -31,12 +30,13 @@ const JobSearch = () => {
                     "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
                 },
                 params: {
-                    query: params.id,
+                    query: params.searchTerm, // It's searchTerm because that is what i named the file i.e. [searchTerm].js
                     page: page.toString(),
                 },
             };
 
             const {data:{data}} = await axios.request(options);
+            
             setSearchResult(data);
         } catch (error) {
             setSearchError(error);
@@ -82,7 +82,7 @@ const JobSearch = () => {
                 renderItem={({ item }) => (
                     <NearbyJobCard
                         job={item}
-                        handleNavigate={() => router.push(`/job-details/${item.job_id}`)}
+                        handleNavigate={() => router.push(`details/${item.job_id}`)}
                     />
                 )}
                 keyExtractor={(item) => item.job_id}
@@ -90,7 +90,7 @@ const JobSearch = () => {
                 ListHeaderComponent={() => (
                     <>
                         <View style={styles.container}>
-                            <Text style={styles.searchTitle}>{params.id}</Text>
+                            <Text style={styles.searchTitle}>{params.searchTerm}</Text>
                             <Text style={styles.noOfSearchedJobs}>Job Opportunities</Text>
                         </View>
                         <View style={styles.loaderContainer}>

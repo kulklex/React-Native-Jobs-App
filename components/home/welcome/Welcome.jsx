@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Image, FlatList } from 'react-
 import { useRouter } from 'expo-router'
 import styles from './welcome.style'
 import { icons, SIZES } from '../../../constants'
-import {RAPID_API_KEY} from '@env'
+
 
 
 const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
@@ -15,7 +15,7 @@ const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
 
   return (<View>
     <View style={styles.container}>
-      <Text style={styles.userName}>Hello Hassan</Text>
+      <Text style={styles.userName}>Hello there</Text>
       <Text style={styles.welcomeMessage}>Find your perfect job</Text>
     </View>
 
@@ -24,7 +24,7 @@ const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
         <TextInput 
           style={styles.searchInput}
           value={searchTerm}
-          onChange={(text) => setSearchTerm(text)} //React Native doesn't need e.target.value it immediately gets the value from as an argument
+          onChangeText={(text) => setSearchTerm(text)} //React Native doesn't need e.target.value it immediately gets the value from as an argument
           placeholder="What are you looking for?" />
       </View>
 
