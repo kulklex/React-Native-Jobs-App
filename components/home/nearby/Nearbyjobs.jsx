@@ -5,7 +5,6 @@ import styles from './nearbyjobs.style'
 import { useRouter } from 'expo-router'
 import { COLORS } from '../../../constants'
 import NearbyJobCard from '../../common/cards/nearby/NearbyJobCard'
-import { MdReduceCapacity } from 'react-icons/md'
 
 
 
@@ -21,9 +20,9 @@ const Nearbyjobs = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Nearby jobs</Text>
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <Text style={styles.headerBtn}><MdReduceCapacity /></Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <View style={styles.cardsContainer}>

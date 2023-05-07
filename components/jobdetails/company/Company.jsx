@@ -29,7 +29,7 @@ const Company = ({companyLogo, jobTitle, companyName, location}) => {
           {companyName}
         </Text>
         <View style={styles.locationBox}>
-          <Image source={icons.location} resizeMode='contain' style={styles.locationImage} />
+          <Image source={icons.location} style={styles.locationImage} />
           <Text style={styles.locationName}>{location}</Text>
         </View>
       </View>

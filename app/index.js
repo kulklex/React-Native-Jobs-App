@@ -12,9 +12,9 @@ const Home = () => {
     const [searchTerm, setSearchTerm] = useState('')
  
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: COLORS.lightWhite,  padding: '5px',}}>
+        <SafeAreaView style={{flex: 1, backgroundColor: COLORS.lightWhite,  padding: 5,}}>
             <Stack.Screen options={{
-                headerStyle: {backgroundColor: COLORS.lightWhite, padding: '5px'},
+                headerStyle: {backgroundColor: COLORS.lightWhite, padding: 5},
                 headerShadowVisible: false,
                 headerLeft: () => (
                     <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />

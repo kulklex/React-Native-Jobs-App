@@ -5,7 +5,6 @@ import styles from './popularjobs.style'
 import {COLORS, SIZES} from '../../../constants'
 import PopularJobCard from '../../common/cards/popular/PopularJobCard'
 import  useFetchB  from '../../../utils/useFetchB'
-import { MdTrendingUp } from 'react-icons/md'
 
 const Popularjobs = () => {
   const router = useRouter()
@@ -23,9 +22,9 @@ const Popularjobs = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Popular jobs</Text>
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <Text style={styles.headerBtn}><MdTrendingUp /></Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <View style={styles.cardsContainer}>

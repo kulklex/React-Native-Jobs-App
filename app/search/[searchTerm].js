@@ -111,7 +111,7 @@ const JobSearch = () => {
                             <Image
                                 source={icons.chevronLeft}
                                 style={styles.paginationImage}
-                                resizeMode="contain"
+                                
                             />
                         </TouchableOpacity>
                         <View style={styles.paginationTextBox}>
@@ -124,7 +124,7 @@ const JobSearch = () => {
                             <Image
                                 source={icons.chevronRight}
                                 style={styles.paginationImage}
-                                resizeMode="contain"
+                                
                             />
                         </TouchableOpacity>
                     </View>
